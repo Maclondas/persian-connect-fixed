@@ -1,0 +1,36 @@
+# Robots.txt for Persian Connect
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://www.persian-connect.com/sitemap.xml
+
+# Crawl-delay (optional)
+Crawl-delay: 1
+
+# Disallow admin and private pages
+Disallow: /admin
+Disallow: /api/
+Disallow: /private/
+Disallow: /*?session=*
+Disallow: /*?token=*
+
+# Allow important pages
+Allow: /
+Allow: /categories/
+Allow: /search
+Allow: /about
+Allow: /contact
+Allow: /help
+
+# Block search parameters that don't add value
+Disallow: /*?sort=*
+Disallow: /*?filter=*
+Disallow: /*?page=*
+
+# Allow social media crawlers
+User-agent: facebookexternalhit/*
+Allow: /
+
+User-agent: Twitterbot
+Allow: /
