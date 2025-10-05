@@ -218,3 +218,35 @@ class RealDataService {
 
 export const realDataService = RealDataService.getInstance();
 export default realDataService;
+// --- lightweight event bus for compatibility ---
+type EventHandler = (payload?: any) => void;
+const __listeners = new Map<string, Set<EventHandler>>();
+
+function __on(event: string, handler: EventHandler) {
+  if (!__listeners.has(event)) __listeners.set(event, new Set());
+  __listeners.get(event)!.add(handler);
+  return () => __off(event, handler);
+}
+function __off(event: string, handler?: EventHandler) {
+  const set = __listeners.get(event);
+  if (!set) return;
+  if (handler) set.delete(handler);
+  else set.clear();
+}
+function __emit(event: string, payload?: any) {
+  const set = __listeners.get(event);
+  if (!set) return;
+  for (const fn of Array.from(set)) {
+    try { fn(payload); } catch {}
+  }
+}
+
+// attach to exported instance (compat with older code expecting .on/.off/.emit)
+(realDataService as any).on = __on;
+(realDataService as any).off = __off;
+(realDataService as any).emit = __emit;
+
+// notify "ready" so subscribers can continue
+setTimeout(() => {
+  try { (realDataService as any).emit?.('ready'); } catch {}
+}, 0);
