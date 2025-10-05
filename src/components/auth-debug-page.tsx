@@ -4,7 +4,7 @@ import { Card, CardContent, CardHeader, CardTitle } from './ui/card';
 import { ArrowLeft, RefreshCw, User, LogIn, LogOut, TestTube, AlertTriangle, Zap } from 'lucide-react';
 import { useAuth } from './hooks/useAuth';
 import realDataService from './services/real-data-service';
-import { toast } from 'sonner@2.0.3';
+import { toast } from 'sonner';
 import { AuthTestComponent } from './auth-test-component';
 import { LoginDebugTool } from './login-debug-tool';
 import { LoginTroubleshootGuide } from './login-troubleshoot-guide';

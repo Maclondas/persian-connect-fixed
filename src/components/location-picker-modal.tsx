@@ -3,7 +3,7 @@ import { Button } from './ui/button';
 import { Input } from './ui/input';
 import { X, Search, ChevronDown } from 'lucide-react';
 import { useLanguage } from './hooks/useLanguage';
-import { toast } from 'sonner@2.0.3';
+import { toast } from 'sonner';
 
 interface LocationPickerModalProps {
   isOpen: boolean;

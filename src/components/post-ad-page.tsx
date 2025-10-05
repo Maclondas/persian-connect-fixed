@@ -14,7 +14,7 @@ import {
   Stethoscope, CreditCard as CreditCardIcon, DollarSign, UtensilsCrossed, 
   ShoppingCart, Scissors, Palette, Languages, BookOpen, Music, MoreHorizontal 
 } from 'lucide-react';
-import { toast } from 'sonner@2.0.3';
+import { toast } from 'sonner';
 import { stripeService, StripeService } from './services/stripe-service';
 import { realDataService as dataService } from './services/real-data-service';
 import { useLanguage } from './hooks/useLanguage';

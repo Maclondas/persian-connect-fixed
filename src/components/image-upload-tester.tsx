@@ -5,7 +5,7 @@ import { Input } from './ui/input';
 import { ImageWithFallback } from './figma/ImageWithFallback';
 import { Upload, CheckCircle, XCircle } from 'lucide-react';
 import realDataService from './services/real-data-service';
-import { toast } from 'sonner@2.0.3';
+import { toast } from 'sonner';
 
 export function ImageUploadTester() {
   const [selectedFile, setSelectedFile] = useState<File | null>(null);

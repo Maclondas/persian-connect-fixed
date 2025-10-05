@@ -7,7 +7,7 @@ import { ImageWithFallback } from './figma/ImageWithFallback';
 import { ArrowLeft, Search, Building, Building2, Home, Crown, BedDouble, MapPin, Heart, MessageCircle, User, PlusSquare, Check } from 'lucide-react';
 import { useLanguage } from './hooks/useLanguage';
 import { realDataService as dataService, Ad } from './services/real-data-service';
-import { toast } from 'sonner@2.0.3';
+import { toast } from 'sonner';
 
 interface NavigateFunction {
   (page: 'home' | 'login' | 'ad-detail' | 'post-ad' | 'messages' | 'chat' | 'admin' | 'my-ads' | 'real-estate', params?: { adId?: string; chatId?: string }): void;

@@ -3,7 +3,7 @@ import { Input } from './ui/input';
 import { ImageWithFallback } from './figma/ImageWithFallback';
 import { ArrowLeft, Search, GraduationCap, BookOpen, Users, Monitor, PenTool, Heart, MessageCircle, User, PlusSquare, Check, Home } from 'lucide-react';
 import { useLanguage } from './hooks/useLanguage';
-import { toast } from 'sonner@2.0.3';
+import { toast } from 'sonner';
 
 interface EducationLearningPageProps {
   onNavigate: (page: string) => void;

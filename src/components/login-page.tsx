@@ -7,7 +7,7 @@ import { useLanguage } from './hooks/useLanguage';
 import { realDataService } from './services/real-data-service';
 import { simpleAuthService } from './simple-auth-service';
 import { reliableAuthService } from './reliable-auth-service';
-import { toast } from 'sonner@2.0.3';
+import { toast } from 'sonner';
 import { Card, CardContent, CardHeader, CardTitle } from './ui/card';
 import { Separator } from './ui/separator';
 import DuplicatePreventionService from './duplicate-prevention-service';

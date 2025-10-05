@@ -3,7 +3,7 @@ import { Input } from './ui/input';
 import { ImageWithFallback } from './figma/ImageWithFallback';
 import { ArrowLeft, Search, Coins, ArrowLeftRight, Gem, Heart, MessageCircle, User, PlusSquare, Check, Home } from 'lucide-react';
 import { useLanguage } from './hooks/useLanguage';
-import { toast } from 'sonner@2.0.3';
+import { toast } from 'sonner';
 import { realDataService, Ad } from './services/real-data-service';
 
 interface CurrencyExchangePageProps {

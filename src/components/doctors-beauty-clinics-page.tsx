@@ -3,7 +3,7 @@ import { Input } from './ui/input';
 import { ImageWithFallback } from './figma/ImageWithFallback';
 import { ArrowLeft, Search, Stethoscope, Scissors, Heart, Sparkles, HandHeart, Syringe, Microscope, Zap, Activity, Dumbbell, Clock, Droplets, Pill, Eye, Ear, Brush, Paintbrush, Eraser, ArrowUpDown, Sun, Star, Plus, MessageCircle, User, PlusSquare, Check, Home } from 'lucide-react';
 import { useLanguage } from './hooks/useLanguage';
-import { toast } from 'sonner@2.0.3';
+import { toast } from 'sonner';
 import { realDataService } from './services/real-data-service';
 
 interface DoctorsBeautyClinicsPageProps {

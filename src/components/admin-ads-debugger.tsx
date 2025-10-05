@@ -5,7 +5,7 @@ import { Badge } from './ui/badge';
 import { RefreshCw, Eye, User, Home, Database } from 'lucide-react';
 import { useAuth } from './hooks/useAuth';
 import { realDataService, type Ad } from './services/real-data-service';
-import { toast } from 'sonner@2.0.3';
+import { toast } from 'sonner';
 
 interface AdminAdsDebuggerProps {
   onNavigate: (page: string) => void;

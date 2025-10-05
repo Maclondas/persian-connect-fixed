@@ -4,7 +4,7 @@ import { Card, CardContent, CardHeader, CardTitle } from './ui/card';
 import { Badge } from './ui/badge';
 import { Alert, AlertDescription } from './ui/alert';
 import { CheckCircle, XCircle, RefreshCw, Database, Upload, Download, AlertTriangle } from 'lucide-react';
-import { toast } from 'sonner@2.0.3';
+import { toast } from 'sonner';
 import realDataService from './services/real-data-service';
 import { projectId, publicAnonKey } from '../utils/supabase/info';
 

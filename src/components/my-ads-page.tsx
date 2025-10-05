@@ -8,7 +8,7 @@ import { useLanguage } from './hooks/useLanguage';
 import { useAuth } from './hooks/useAuth';
 import { realDataService as dataService, type Ad, type Payment } from './services/real-data-service';
 import { stripeService, StripeService } from './services/stripe-service';
-import { toast } from 'sonner@2.0.3';
+import { toast } from 'sonner';
 
 interface MyAdsPageProps {
   onNavigate: (page: string, params?: { adId?: string }) => void;

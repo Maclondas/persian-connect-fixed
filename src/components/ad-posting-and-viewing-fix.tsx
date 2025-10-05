@@ -10,7 +10,7 @@ import {
 } from 'lucide-react';
 import { useAuth } from './hooks/useAuth';
 import { realDataService, Ad } from './services/real-data-service';
-import { toast } from 'sonner@2.0.3';
+import { toast } from 'sonner';
 
 interface AdPostingAndViewingFixProps {
   onNavigate: (page: string, params?: { adId?: string }) => void;

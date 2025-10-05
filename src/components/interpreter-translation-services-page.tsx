@@ -3,7 +3,7 @@ import { Input } from './ui/input';
 import { ImageWithFallback } from './figma/ImageWithFallback';
 import { ArrowLeft, Search, Languages, FileText, Scale, Stethoscope, Settings, Globe, Mic, Building, GraduationCap, Award, Heart, MessageCircle, User, PlusSquare, Check, Home } from 'lucide-react';
 import { useLanguage } from './hooks/useLanguage';
-import { toast } from 'sonner@2.0.3';
+import { toast } from 'sonner';
 import { realDataService } from './services/real-data-service';
 
 interface InterpreterTranslationServicesPageProps {

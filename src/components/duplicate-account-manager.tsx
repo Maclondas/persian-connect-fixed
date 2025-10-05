@@ -6,7 +6,7 @@ import { Badge } from './ui/badge';
 import { Separator } from './ui/separator';
 import { ScrollArea } from './ui/scroll-area';
 import { UserX, Mail, User, Calendar, Trash2 } from 'lucide-react';
-import { toast } from 'sonner@2.0.3';
+import { toast } from 'sonner';
 import realDataService from './services/real-data-service';
 
 interface DuplicateAccount {

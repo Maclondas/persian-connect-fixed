@@ -5,7 +5,7 @@ import { Badge } from './ui/badge';
 import { RefreshCw, User, AlertTriangle, CheckCircle, XCircle } from 'lucide-react';
 import { useAuth } from './hooks/useAuth';
 import { realDataService } from './services/real-data-service';
-import { toast } from 'sonner@2.0.3';
+import { toast } from 'sonner';
 
 interface AdminPostDebugProps {
   onNavigate: (page: string) => void;

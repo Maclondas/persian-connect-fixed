@@ -3,7 +3,7 @@ import { Button } from './ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from './ui/card';
 import { Badge } from './ui/badge';
 import { Separator } from './ui/separator';
-import { toast } from 'sonner@2.0.3';
+import { toast } from 'sonner';
 import { Loader2, CheckCircle, XCircle, AlertCircle, RefreshCw, Database, Server, Eye } from 'lucide-react';
 import { projectId, publicAnonKey } from '../utils/supabase/info';
 import realDataService from './services/real-data-service';

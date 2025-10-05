@@ -6,7 +6,7 @@ import { ImageWithFallback } from './figma/ImageWithFallback';
 import { Star, Heart, MessageCircle, MapPin, Clock, Eye } from 'lucide-react';
 import { useLanguage } from './hooks/useLanguage';
 import { Ad } from './services/real-data-service';
-import { toast } from 'sonner@2.0.3';
+import { toast } from 'sonner';
 
 interface AdCardProps {
   ad: Ad;

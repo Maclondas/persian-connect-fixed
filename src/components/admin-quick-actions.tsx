@@ -4,7 +4,7 @@ import { Card, CardHeader, CardTitle, CardContent } from './ui/card';
 import { Badge } from './ui/badge';
 import { useAuth } from './hooks/useAuth';
 import realDataService from './services/real-data-service';
-import { toast } from 'sonner@2.0.3';
+import { toast } from 'sonner';
 import { CheckCircle, Clock, AlertTriangle, RefreshCw, ArrowLeft } from 'lucide-react';
 
 interface AdminQuickActionsProps {

@@ -3,7 +3,7 @@ import { Input } from './ui/input';
 import { ImageWithFallback } from './figma/ImageWithFallback';
 import { ArrowLeft, Search, Monitor, Sparkles, Scissors, Palette, Wrench, Zap, Flame, Home as HomeIcon, Wind, Car, Hammer, Code, TrendingUp, Building, Clipboard, Shield, ChefHat, Camera, Music, Languages, Heart, MessageCircle, User, PlusSquare, Check, Home, Paintbrush } from 'lucide-react';
 import { useLanguage } from './hooks/useLanguage';
-import { toast } from 'sonner@2.0.3';
+import { toast } from 'sonner';
 import { realDataService, Ad } from './services/real-data-service';
 
 interface CoursesTrainingPageProps {

@@ -6,7 +6,7 @@ import { Alert, AlertDescription } from './ui/alert';
 import { CheckCircle, XCircle, Shield, RefreshCw, User, Key, Database } from 'lucide-react';
 import { useAuth } from './hooks/useAuth';
 import { realDataService } from './services/real-data-service';
-import { toast } from 'sonner@2.0.3';
+import { toast } from 'sonner';
 
 interface AdminAccessTestProps {
   onNavigate: (page: string) => void;

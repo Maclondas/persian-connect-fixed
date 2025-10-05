@@ -3,7 +3,7 @@ import { Input } from './ui/input';
 import { ImageWithFallback } from './figma/ImageWithFallback';
 import { ArrowLeft, Search, Dumbbell, Users, Monitor, Target, Zap, Activity, Heart, Utensils, Building, Baby, Shield, Trophy, MessageCircle, User, PlusSquare, Check, Home } from 'lucide-react';
 import { useLanguage } from './hooks/useLanguage';
-import { toast } from 'sonner@2.0.3';
+import { toast } from 'sonner';
 import { realDataService, Ad } from './services/real-data-service';
 
 interface FitnessCoachPageProps {

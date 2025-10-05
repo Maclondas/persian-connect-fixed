@@ -10,7 +10,7 @@ import { useAuth } from './hooks/useAuth';
 import { useLanguage } from './hooks/useLanguage';
 import { realDataService } from './services/real-data-service';
 import { getSupabaseClient } from '../utils/supabase/client';
-import { toast } from 'sonner@2.0.3';
+import { toast } from 'sonner';
 
 interface NavigateFunction {
   (page: 'home' | 'login' | 'ad-detail' | 'post-ad' | 'messages' | 'chat' | 'admin', params?: { adId?: string; chatId?: string }): void;

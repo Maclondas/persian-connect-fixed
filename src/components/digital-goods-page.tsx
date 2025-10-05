@@ -3,7 +3,7 @@ import { Input } from './ui/input';
 import { ImageWithFallback } from './figma/ImageWithFallback';
 import { ArrowLeft, Search, Smartphone, Monitor, Gamepad2, Headphones, Phone, Home, Zap, Shield, Tv, Wifi, Printer, Watch, Car, Drone, Lightbulb, Satellite, Cable, Heart, MessageCircle, User, PlusSquare, Check, Tablet, Laptop, Camera } from 'lucide-react';
 import { useLanguage } from './hooks/useLanguage';
-import { toast } from 'sonner@2.0.3';
+import { toast } from 'sonner';
 import { realDataService, Ad } from './services/real-data-service';
 
 interface DigitalGoodsPageProps {

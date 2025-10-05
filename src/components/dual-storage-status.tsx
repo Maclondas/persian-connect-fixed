@@ -4,7 +4,7 @@ import { Button } from './ui/button';
 import { Badge } from './ui/badge';
 import { Cloud, Database, RefreshCw, CheckCircle, AlertCircle, Loader2 } from 'lucide-react';
 import { realDataService } from './services/real-data-service';
-import { toast } from 'sonner@2.0.3';
+import { toast } from 'sonner';
 
 interface SyncStatus {
   total: number;

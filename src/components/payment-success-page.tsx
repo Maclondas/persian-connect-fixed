@@ -2,7 +2,7 @@ import { useEffect, useState, useCallback } from 'react';
 import { Button } from './ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from './ui/card';
 import { CheckCircle, Home, Receipt, Clock, Shield } from 'lucide-react';
-import { toast } from 'sonner@2.0.3';
+import { toast } from 'sonner';
 import { realDataService as dataService } from './services/real-data-service';
 
 interface PaymentSuccessPageProps {

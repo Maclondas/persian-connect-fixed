@@ -5,7 +5,7 @@ import { Checkbox } from './ui/checkbox';
 import { ScrollArea } from './ui/scroll-area';
 import { FileText, Shield, AlertCircle } from 'lucide-react';
 import { Alert, AlertDescription } from './ui/alert';
-import { toast } from 'sonner@2.0.3';
+import { toast } from 'sonner';
 import realDataService from './services/real-data-service';
 
 interface TermsAcceptanceModalProps {

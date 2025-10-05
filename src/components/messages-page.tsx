@@ -8,7 +8,7 @@ import { ImageWithFallback } from './figma/ImageWithFallback';
 import { ArrowLeft, Search, MessageCircle } from 'lucide-react';
 import { useAuth } from './hooks/useAuth';
 import { realDataService, type Chat, type Message } from './services/real-data-service';
-import { toast } from 'sonner@2.0.3';
+import { toast } from 'sonner';
 
 interface NavigateFunction {
   (page: 'home' | 'login' | 'ad-detail' | 'post-ad' | 'messages' | 'chat' | 'admin', params?: { adId?: string; chatId?: string }): void;

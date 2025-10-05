@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { Button } from './ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from './ui/card';
 import { XCircle, ArrowLeft, CreditCard, Loader2 } from 'lucide-react';
-import { toast } from 'sonner@2.0.3';
+import { toast } from 'sonner';
 
 interface PaymentFailedPageProps {
   onNavigate: (page: string) => void;

@@ -3,7 +3,7 @@ import { Button } from './ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from './ui/card';
 import { Badge } from './ui/badge';
 import { CheckCircle, XCircle, User, Shield, Settings, RefreshCw } from 'lucide-react';
-import { toast } from 'sonner@2.0.3';
+import { toast } from 'sonner';
 import { realDataService } from './services/real-data-service';
 import { simpleAuthService } from './simple-auth-service';
 import { reliableAuthService } from './reliable-auth-service';

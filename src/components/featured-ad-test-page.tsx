@@ -6,7 +6,7 @@ import { Input } from './ui/input';
 import { Label } from './ui/label';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from './ui/select';
 import { Star, TestTube, Clock, Eye, ArrowLeft, CheckCircle, XCircle, RefreshCw, Plus } from 'lucide-react';
-import { toast } from 'sonner@2.0.3';
+import { toast } from 'sonner';
 import { useAuth } from './hooks/useAuth';
 import { useLanguage } from './hooks/useLanguage';
 

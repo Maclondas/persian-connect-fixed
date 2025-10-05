@@ -14,7 +14,7 @@ import { isUserAdmin } from './admin-dashboard';
 import realDataService, { Ad as DataAd } from './services/real-data-service';
 import { publicAnonKey } from '../utils/supabase/info';
 import { useAuth } from './hooks/useAuth';
-import { toast } from 'sonner@2.0.3';
+import { toast } from 'sonner';
 import { PWADebug } from './pwa-debug';
 
 interface NavigateFunction {

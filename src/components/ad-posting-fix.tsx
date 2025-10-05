@@ -4,7 +4,7 @@ import { Card, CardContent, CardHeader, CardTitle } from './ui/card';
 import { Badge } from './ui/badge';
 import { Separator } from './ui/separator';
 import { AlertTriangle, Database, HardDrive, Trash2, Settings, CheckCircle, XCircle, RefreshCw } from 'lucide-react';
-import { toast } from 'sonner@2.0.3';
+import { toast } from 'sonner';
 
 interface NavigateFunction {
   (page: 'home' | 'post-ad' | 'admin' | 'ultra-simple-db'): void;

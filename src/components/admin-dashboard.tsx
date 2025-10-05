@@ -48,7 +48,7 @@ import {
 } from 'lucide-react';
 import { useLanguage } from './hooks/useLanguage';
 import { useAuth } from './hooks/useAuth';
-import { toast } from 'sonner@2.0.3';
+import { toast } from 'sonner';
 import { projectId, publicAnonKey } from '../utils/supabase/info';
 import { realDataService } from './services/real-data-service';
 import { TestDuplicatePrevention } from './test-duplicate-prevention';

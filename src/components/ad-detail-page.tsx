@@ -9,7 +9,7 @@ import { ArrowLeft, MessageCircle, Heart, Share, MapPin, Calendar, Tag, Shield, 
 import realDataService, { Ad } from './services/real-data-service';
 import { useLanguage } from './hooks/useLanguage';
 import { useAuth } from './hooks/useAuth';
-import { toast } from 'sonner@2.0.3';
+import { toast } from 'sonner';
 import { ChatAuthFix } from './chat-auth-fix';
 import { ChatFixGuide } from './chat-fix-guide';
 import { AdDetailDebug } from './ad-detail-debug';
