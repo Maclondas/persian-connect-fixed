@@ -292,3 +292,50 @@ let __demoMode = false;
   }
 };
 // ===== end shims =====
+// ===== ads compatibility shim =====
+import supabase from '../../utils/supabase/client';
+
+type AdLite = {
+  id: string;
+  title: string;
+  price?: number | null;
+  images?: string[] | null;
+  createdAt?: string | null;
+  category?: string | null;
+  location?: string | null;
+};
+
+async function __getAllAdsAsync(): Promise<AdLite[]> {
+  try {
+    // respect demo mode
+    if ((realDataService as any).isDemoMode?.()) return [];
+
+    if (supabase) {
+      const { data, error } = await supabase
+        .from('ads')
+        .select('*')
+        .order('created_at', { ascending: false })
+        .limit(40);
+
+      if (!error && Array.isArray(data)) {
+        return data.map((row: any) => ({
+          id: String(row.id ?? ''),
+          title: row.title ?? row.name ?? 'Untitled',
+          price: row.price ?? null,
+          images: row.images ?? row.photos ?? null,
+          createdAt: row.created_at ?? row.createdAt ?? null,
+          category: row.category ?? null,
+          location: row.location ?? row.city ?? null,
+        }));
+      }
+    }
+  } catch {}
+  return [];
+}
+
+// expose old method names used around the app
+(realDataService as any).getAllAdsAsync = __getAllAdsAsync;
+(realDataService as any).getAllAds = __getAllAdsAsync;
+(realDataService as any).getAds = __getAllAdsAsync;
+(realDataService as any).fetchAllAds = __getAllAdsAsync;
+// ===== end ads shim =====
