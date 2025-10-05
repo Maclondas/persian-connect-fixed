@@ -176,6 +176,7 @@ export function LoginStatusDebug({ onNavigate }: LoginStatusDebugProps) {
 
                 <div className="space-y-2">
                   <Button onClick={handleQuickAdminLogin} className="w-full">
+                    Quick Admin Login
                   </Button>
                   <Button variant="outline" onClick={() => onNavigate('login')} className="w-full">
                     Go to Login Page
@@ -292,6 +293,7 @@ export function LoginStatusDebug({ onNavigate }: LoginStatusDebugProps) {
               <div className="space-y-2">
                 <h4 className="font-medium">Testing Tips:</h4>
                 <ul className="space-y-1 text-sm text-muted-foreground">
+                  <li>• Use "Quick Admin Login" for instant admin access</li>
                   <li>• Admin users (ommzadeh@gmail.com) have special privileges</li>
                   <li>• Check browser console for detailed logging</li>
                   <li>• All authentication now works offline</li>
