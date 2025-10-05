@@ -1,7 +1,7 @@
 import { useState, useEffect, lazy, Suspense } from 'react';
 import { SEOHead } from './components/seo-head';
 import { Homepage } from './components/homepage';
-import LoginPage from "./components/login-page";
+import { LoginPage } from './components/login-page';
 import { AdDetailPage } from './components/ad-detail-page';
 import { PostAdPage } from './components/post-ad-page';
 import { EditAdPage } from './components/edit-ad-page';
