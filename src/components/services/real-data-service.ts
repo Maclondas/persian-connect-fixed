@@ -51,6 +51,9 @@ class RealDataService {
     if (!this._instance) this._instance = new RealDataService();
     return this._instance;
   }
+public async checkServerAvailability(): Promise<boolean> {
+  return true;
+}
 
   private currentUser: User | null = null;
 
