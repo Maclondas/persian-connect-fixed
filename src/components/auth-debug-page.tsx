@@ -112,7 +112,7 @@ export function AuthDebugPage({ onNavigate }: AuthDebugPageProps) {
       console.log('🧪 Testing Google OAuth directly...');
       
       // Import the client directly for testing
-      const { getSupabaseClient } = await import('../../utils/supabase/client');
+      const { getSupabaseClient } = await import('../utils/supabase/client');
       const supabase = getSupabaseClient();
       
       if (!supabase) {
