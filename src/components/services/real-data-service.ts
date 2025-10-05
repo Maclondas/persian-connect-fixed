@@ -250,3 +250,45 @@ function __emit(event: string, payload?: any) {
 setTimeout(() => {
   try { (realDataService as any).emit?.('ready'); } catch {}
 }, 0);
+// ===== Compatibility shims added by deploy script =====
+import supabase from '../../utils/supabase/client';
+
+// simple mode flag used by older screens
+let __demoMode = false;
+
+/** Return current "demo" mode */
+(realDataService as any).isDemoMode = () => __demoMode;
+
+/** Set "demo" mode and notify listeners */
+(realDataService as any).setDemoMode = (v: boolean) => {
+  __demoMode = !!v;
+  try { (realDataService as any).emit?.('mode-change', __demoMode); } catch {}
+};
+
+/** Check for an existing Supabase auth session (non-throwing) */
+(realDataService as any).checkExistingSession = async () => {
+  try {
+    // If Supabase isn’t configured, just return null gracefully
+    if (!supabase) return null;
+    const { data } = await supabase.auth.getSession();
+    const session = data?.session || null;
+
+    // Fire an event for any subscribers
+    try { (realDataService as any).emit?.('auth-session', session); } catch {}
+
+    // Normalize to a minimal user shape expected elsewhere
+    if (session?.user) {
+      const u = session.user;
+      return {
+        id: u.id,
+        email: u.email ?? null,
+        // keep extra fields optional to avoid crashes
+        name: (u.user_metadata && (u.user_metadata.full_name || u.user_metadata.name)) || null,
+      };
+    }
+    return null;
+  } catch {
+    return null;
+  }
+};
+// ===== end shims =====
