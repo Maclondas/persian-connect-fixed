@@ -1,26 +1,6 @@
 import React, { useState } from 'react';
 import supabase from '../utils/supabase/client';
 
-const goHome = () => {
-  const url = new URL(window.location.href);
-  if (url.searchParams.has('page')) {
-    url.searchParams.set('page', 'home');
-    window.location.href = `${url.pathname}?${url.searchParams.toString()}`;
-  } else {
-    window.location.href = '/';
-  }
-};
-
-const goSignup = () => {
-  const url = new URL(window.location.href);
-  if (url.pathname === '/' || url.searchParams.has('page')) {
-    url.searchParams.set('page', 'signup');
-    window.location.href = `${url.pathname}?${url.searchParams.toString()}`;
-  } else {
-    window.location.href = '/signup';
-  }
-};
-
 const LoginPage: React.FC = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -36,7 +16,7 @@ const LoginPage: React.FC = () => {
     if (error) {
       setError(error.message);
     } else {
-      goHome();
+      window.location.href = '/';
     }
   };
 
@@ -52,24 +32,7 @@ const LoginPage: React.FC = () => {
   };
 
   return (
-    <div style={{maxWidth: 520, margin: '40px auto', padding: 24}}>
-      <div style={{display: 'flex', alignItems: 'center', marginBottom: 16}}>
-        <button
-          onClick={goHome}
-          aria-label="Back"
-          style={{
-            border: '1px solid #ddd',
-            background: 'white',
-            padding: '8px 12px',
-            borderRadius: 8,
-            cursor: 'pointer'
-          }}
-        >
-          ← Back
-        </button>
-        <div style={{flex: 1}} />
-      </div>
-
+    <div style={{maxWidth: 480, margin: '40px auto', padding: 24}}>
       <h1 style={{fontSize: 24, marginBottom: 16}}>Welcome Back</h1>
 
       <button
@@ -112,16 +75,6 @@ const LoginPage: React.FC = () => {
           {loading ? 'Signing in…' : 'Sign In'}
         </button>
       </form>
-
-      <div style={{textAlign: 'center', marginTop: 16, color: '#444'}}>
-        Don’t have an account?{' '}
-        <button
-          onClick={goSignup}
-          style={{background: 'none', border: 'none', color: '#0ea5e9', fontWeight: 600, cursor: 'pointer'}}
-        >
-          Sign up
-        </button>
-      </div>
     </div>
   );
 };
