@@ -209,7 +209,8 @@ export default function App() {
     try {
       switch (currentPage) {
       case 'home':
-        return <Homepage onNavigate={navigateTo} />;
+        if (page === 'signup') return <SignupPage />;
+  return <Homepage onNavigate={navigateTo} />;
       case 'login':
         return <LoginPage onNavigate={navigateTo} />;
       case 'ad-detail':

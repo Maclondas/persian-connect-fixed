@@ -1,130 +1,53 @@
-import React, { useState } from 'react';
-import supabase from '../utils/supabase/client';
+import { useState } from 'react';
+import { createClient } from '@supabase/supabase-js';
 
-const goHome = () => {
-  const url = new URL(window.location.href);
-  if (url.searchParams.has('page')) {
-    url.searchParams.set('page', 'home');
-    window.location.href = `${url.pathname}?${url.searchParams.toString()}`;
-  } else {
-    window.location.href = '/';
-  }
-};
+const supabase = createClient(import.meta.env.VITE_SUPABASE_URL, import.meta.env.VITE_SUPABASE_ANON_KEY);
 
-const goSignup = () => {
-  const url = new URL(window.location.href);
-  if (url.pathname === '/' || url.searchParams.has('page')) {
-    url.searchParams.set('page', 'signup');
-    window.location.href = `${url.pathname}?${url.searchParams.toString()}`;
-  } else {
-    window.location.href = '/signup';
-  }
-};
+function navTo(page: string) {
+  const u = new URL(window.location.href);
+  u.searchParams.set('page', page);
+  window.location.href = u.toString();
+}
 
-const LoginPage: React.FC = () => {
+export default function LoginPage() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [busy, setBusy] = useState(false);
   const [error, setError] = useState<string | null>(null);
-  const [loading, setLoading] = useState(false);
 
-  const signIn = async (e: React.FormEvent) => {
+  async function onEmailLogin(e: React.FormEvent) {
     e.preventDefault();
+    setBusy(true);
     setError(null);
-    setLoading(true);
-    const { error } = await supabase.auth.signInWithPassword({ email, password });
-    setLoading(false);
-    if (error) {
-      setError(error.message);
-    } else {
-      goHome();
-    }
-  };
+    const { data, error } = await supabase.auth.signInWithPassword({ email, password });
+    setBusy(false);
+    if (error) { setError(error.message); return; }
+    if (data?.user) navTo('home');
+  }
 
-  const signInWithGoogle = async () => {
-    try {
-      await supabase.auth.signInWithOAuth({
-        provider: 'google',
-        options: { redirectTo: window.location.origin }
-      });
-    } catch (err: any) {
-      setError(err?.message ?? 'OAuth sign-in failed');
-    }
-  };
+  async function onGoogle() {
+    setBusy(true);
+    setError(null);
+    const redirectTo = `${location.origin}/?page=auth-callback`;
+    const { error } = await supabase.auth.signInWithOAuth({ provider: 'google', options: { redirectTo } });
+    if (error) { setBusy(false); setError(error.message); }
+  }
 
   return (
-    <div style={{maxWidth: 520, margin: '40px auto', padding: 24}}>
-      <div style={{display: 'flex', alignItems: 'center', marginBottom: 16}}>
-        <button
-          onClick={goHome}
-          aria-label="Back"
-          style={{
-            border: '1px solid #ddd',
-            background: 'white',
-            padding: '8px 12px',
-            borderRadius: 8,
-            cursor: 'pointer'
-          }}
-        >
-          ← Back
-        </button>
-        <div style={{flex: 1}} />
-      </div>
-
-      <h1 style={{fontSize: 24, marginBottom: 16}}>Welcome Back</h1>
-
-      <button
-        onClick={signInWithGoogle}
-        style={{width: '100%', padding: '10px 14px', borderRadius: 8, border: '1px solid #ddd', marginBottom: 16}}
-      >
-        Continue with Google
-      </button>
-
-      <div style={{textAlign: 'center', color: '#999', margin: '12px 0'}}>OR CONTINUE WITH EMAIL</div>
-
-      <form onSubmit={signIn}>
-        <label style={{display: 'block', marginBottom: 6}}>Email Address</label>
-        <input
-          type="email"
-          required
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          placeholder="you@example.com"
-          style={{width: '100%', padding: '10px 12px', borderRadius: 8, border: '1px solid #ddd', marginBottom: 12}}
-        />
-
-        <label style={{display: 'block', marginBottom: 6}}>Password</label>
-        <input
-          type="password"
-          required
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          placeholder="Your password"
-          style={{width: '100%', padding: '10px 12px', borderRadius: 8, border: '1px solid #ddd', marginBottom: 16}}
-        />
-
-        {error && <div style={{color: 'crimson', marginBottom: 12}}>{error}</div>}
-
-        <button
-          type="submit"
-          disabled={loading}
-          style={{width: '100%', padding: '12px 14px', borderRadius: 8, border: 'none', background: '#10b981', color: 'white', fontWeight: 600}}
-        >
-          {loading ? 'Signing in…' : 'Sign In'}
-        </button>
+    <div className="max-w-md mx-auto p-6">
+      <button className="mb-4 text-sm underline" onClick={() => navTo('home')}>← Back</button>
+      <h1 className="text-2xl font-semibold mb-6">Welcome Back</h1>
+      <button className="w-full rounded-md border px-4 py-3 mb-4" onClick={onGoogle} disabled={busy}>Continue with Google</button>
+      <div className="text-center text-xs uppercase text-gray-500 my-3">or continue with email</div>
+      <form onSubmit={onEmailLogin} className="space-y-3">
+        <input type="email" placeholder="you@example.com" value={email} onChange={(e) => setEmail(e.target.value)} className="w-full border rounded-md px-3 py-2" required />
+        <input type="password" placeholder="Your password" value={password} onChange={(e) => setPassword(e.target.value)} className="w-full border rounded-md px-3 py-2" required />
+        <button type="submit" className="w-full bg-emerald-500 text-white rounded-md px-4 py-3" disabled={busy}>{busy ? 'Signing in…' : 'Sign In'}</button>
       </form>
-
-      <div style={{textAlign: 'center', marginTop: 16, color: '#444'}}>
-        Don’t have an account?{' '}
-        <button
-          onClick={goSignup}
-          style={{background: 'none', border: 'none', color: '#0ea5e9', fontWeight: 600, cursor: 'pointer'}}
-        >
-          Sign up
-        </button>
+      {error && <p className="mt-3 text-sm text-red-600">{error}</p>}
+      <div className="mt-6 text-center text-sm">
+        New here? <button className="underline" onClick={() => navTo('signup')}>Create an account</button>
       </div>
     </div>
   );
-};
-
-export default LoginPage;
-export { LoginPage };
+}
